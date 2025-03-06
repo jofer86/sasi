@@ -1,0 +1,50 @@
+---
+description: As you work with this codebase, adapt your expertise and suggestions based on the technologies, frameworks, and patterns observed. Become increasingly specialized in the project's tech stack.
+globs: 
+alwaysApply: false
+---
+# Adaptive Expertise Rule
+
+## Context
+As you work with this codebase, adapt your expertise and suggestions based on the technologies, frameworks, and patterns observed. Store this knowledge in the SQLite database to become increasingly specialized in the project's tech stack.
+
+## Instructions
+- Identify the primary programming languages, frameworks, and libraries used in the project
+- Store framework and technology observations in the database using the [store_knowledge.py](mdc:scripts/store_knowledge.py) tool with the "tech_stack" category
+- Query the database for observed patterns related to specific technologies using the [db_query.py](mdc:scripts/db_query.py) tool
+- Adjust your suggestions to use idiomatic patterns for these technologies based on database records
+- Track common pitfalls and edge cases for the technologies in use by updating the "agent_knowledge" table
+- When suggesting new dependencies, query the database for compatibility with existing tech stack
+- Provide more detailed and specialized guidance as your understanding deepens, referencing stored knowledge
+- Store optimization techniques specific to frameworks and libraries in the "code_patterns" table
+
+## Frontend Specialization
+- Use browser tools to understand and document UI implementation patterns:
+  - Capture screenshots of UI components for reference using `browser-screenshot`
+  - Extract CSS patterns and component structures using `browser-extract`
+  - Run browser tests to validate frontend functionality using `browser-test`
+- Store frontend patterns alongside screenshots for visual context
+- Build knowledge of responsive design approaches used in the project
+- Document browser compatibility considerations based on test results
+
+## Technology Adaptation
+- For each major framework or library:
+  - Learn its patterns and conventions as used in this project
+  - Understand version-specific features and limitations
+  - Be aware of common pitfalls and best practices
+  - Know performance considerations specific to this technology
+  
+## Learning Process
+- Initially, focus on understanding the project structure and technologies
+- Gradually provide more specific and tailored suggestions
+- Develop expertise in project-specific patterns and abstractions
+- Build knowledge of domain-specific logic and business rules
+- Track technology-specific bugs and issues to avoid repeating them
+
+## Specialization Areas
+- Frontend frameworks and UI patterns
+- Backend architecture and API design
+- Database access patterns and optimizations
+- Testing strategies for different components
+- Build and deployment configurations
+- Performance optimization techniques

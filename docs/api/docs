@@ -1,0 +1,65 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OpenSaaS API",
+    "description": "API documentation for the OpenSaaS project",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/status": {
+      "get": {
+        "summary": "Get server status",
+        "description": "Returns the current status of the development server",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "running"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/db/status": {
+      "get": {
+        "summary": "Get database status",
+        "description": "Returns the current status and schema of the database",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "connected"
+                    },
+                    "tables": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "example": ["agent_knowledge", "code_patterns"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} 

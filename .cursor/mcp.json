@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "servers": [
+    {
+      "name": "documentation-server",
+      "command": "python -m http.server 8000 --directory ./docs",
+      "url": "http://localhost:8000",
+      "resources": [
+        {
+          "path": "/api/docs",
+          "description": "Project documentation API"
+        }
+      ]
+    },
+    {
+      "name": "dev-server",
+      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "resources": [
+        {
+          "path": "/api/status",
+          "description": "Development server status endpoint"
+        }
+      ]
+    },
+    {
+      "name": "database-server",
+      "command": "python -m flask run --port 5000",
+      "url": "http://localhost:5000",
+      "resources": [
+        {
+          "path": "/api/db/query",
+          "description": "SQLite database query endpoint"
+        },
+        {
+          "path": "/api/db/status",
+          "description": "Database status and schema information"
+        }
+      ]
+    },
+    {
+      "name": "browser-tools-server",
+      "command": "npm run browser-tools",
+      "url": "http://localhost:7000",
+      "resources": [
+        {
+          "path": "/api/browser/logs",
+          "description": "Access browser console logs"
+        },
+        {
+          "path": "/api/browser/network",
+          "description": "Access browser network logs"
+        },
+        {
+          "path": "/api/browser/screenshot",
+          "description": "Take browser screenshots"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "db-query",
+      "description": "Query the project's SQLite database",
+      "command": "python ./scripts/db_query.py \"${query}\"",
+      "args": [
+        {
+          "name": "query",
+          "description": "SQL query to execute against the database"
+        }
+      ]
+    },
+    {
+      "name": "db-save",
+      "description": "Save data to the project's SQLite database",
+      "command": "python ./scripts/db_save.py \"${table}\" '${data}'",
+      "args": [
+        {
+          "name": "table",
+          "description": "Table name to save data to"
+        },
+        {
+          "name": "data",
+          "description": "JSON data to save to the database"
+        }
+      ]
+    },
+    {
+      "name": "knowledge-store",
+      "description": "Store agent learnings in the knowledge database",
+      "command": "python ./scripts/store_knowledge.py \"${category}\" \"${key}\" '${value}'",
+      "args": [
+        {
+          "name": "category",
+          "description": "Knowledge category (e.g., 'pattern', 'bug', 'architecture')"
+        },
+        {
+          "name": "key",
+          "description": "Unique identifier for this knowledge"
+        },
+        {
+          "name": "value",
+          "description": "JSON data containing the knowledge to store"
+        }
+      ]
+    },
+    {
+      "name": "knowledge-retrieve",
+      "description": "Retrieve agent learnings from the knowledge database",
+      "command": "python ./scripts/retrieve_knowledge.py \"${category}\" \"${key}\"",
+      "args": [
+        {
+          "name": "category",
+          "description": "Knowledge category to retrieve from"
+        },
+        {
+          "name": "key",
+          "description": "Optional key to retrieve specific knowledge (empty for all in category)"
+        }
+      ]
+    },
+    {
+      "name": "getConsoleLogs",
+      "description": "Get browser console logs",
+      "command": "mcp-browser getConsoleLogs",
+      "args": []
+    },
+    {
+      "name": "getConsoleErrors",
+      "description": "Get browser console error logs",
+      "command": "mcp-browser getConsoleErrors",
+      "args": []
+    },
+    {
+      "name": "getNetworkErrorLogs",
+      "description": "Get browser network error logs",
+      "command": "mcp-browser getNetworkErrorLogs",
+      "args": []
+    },
+    {
+      "name": "getNetworkSuccessLogs",
+      "description": "Get browser network success logs",
+      "command": "mcp-browser getNetworkSuccessLogs",
+      "args": []
+    },
+    {
+      "name": "takeScreenshot",
+      "description": "Take a screenshot of the current browser view",
+      "command": "mcp-browser takeScreenshot",
+      "args": []
+    },
+    {
+      "name": "getSelectedElement",
+      "description": "Get information about the currently selected element",
+      "command": "mcp-browser getSelectedElement",
+      "args": []
+    },
+    {
+      "name": "wipeLogs",
+      "description": "Clear all browser logs",
+      "command": "mcp-browser wipeLogs",
+      "args": []
+    }
+  ]
+}

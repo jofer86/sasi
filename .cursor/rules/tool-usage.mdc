@@ -1,0 +1,55 @@
+---
+description: Leverage Cursor's MCP and agent features effectively to maximize your productivity. This rule helps configure how the agent should use available tools and resources.
+globs: 
+alwaysApply: false
+---
+# Tool Utilization Rule
+
+## Context
+Leverage Cursor's MCP and agent features effectively to maximize your productivity, with special focus on the SQLite database tools. This rule helps configure how the agent should use available tools and resources.
+
+## Instructions
+- Use the SQLite database MCP tools for knowledge persistence:
+  - [db_query.py](mdc:scripts/db_query.py): Run queries to retrieve stored information
+  - [db_save.py](mdc:scripts/db_save.py): Save new data into the appropriate table
+  - [store_knowledge.py](mdc:scripts/store_knowledge.py): Store a new piece of knowledge
+  - [store_knowledge.py](mdc:scripts/store_knowledge.py): Retrieve knowledge by category and key
+  - Use the browser debugging tools for frontend assistance:
+    - `getConsoleLogs`: Retrieve browser console logs for debugging
+    - `getConsoleErrors`: Get console error messages
+    - `getNetworkErrorLogs`: Review failed network requests
+    - `getNetworkSuccessLogs`: Examine successful API calls
+    - `takeScreenshot`: Capture UI state for documentation
+    - `getSelectedElement`: Inspect specific DOM elements
+    - `wipeLogs`: Clear logs before new debugging sessions
+- Leverage API context from the database server when providing answers
+- Use terminal commands to execute tests, build processes, or gather information
+- Use @git context to understand code history and evolution
+- Utilize @web searches for up-to-date information about libraries and frameworks
+- Access project documentation through the /api/docs endpoint
+- Run linters and automated fixes when available
+- Suggest specific VS Code extensions that might help with identified issues
+
+## Yolo Mode Configuration
+- When in Yolo mode (automatic tool execution):
+  - Always explain what commands will be run and why
+  - Prefer read-only commands when possible
+  - Run tests before suggesting or applying changes
+  - After making changes, verify they work as expected
+  - Use appropriate error handling for commands
+
+## MCP Resources
+- Utilize configured MCP resources for:
+  - Project documentation
+  - API testing
+  - Development server status
+  - Performance monitoring
+  - Log analysis
+
+## Terminal Usage
+- Use terminal commands to:
+  - Run tests to validate changes
+  - Check for linting errors
+  - Execute build commands
+  - Analyze dependencies
+  - Monitor resource usage

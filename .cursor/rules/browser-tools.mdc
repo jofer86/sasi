@@ -1,0 +1,93 @@
+---
+description: Leverage the browser tools MCP server to automate web interactions, testing, and content extraction. These tools enable you to capture screenshots, extract data from webpages, and run browser-based tests to improve your development workflow.
+globs: 
+alwaysApply: false
+---
+# Browser Tools Rule
+
+## Context
+Leverage the existing browser tools MCP server to debug, monitor, and document frontend behavior. These tools enable you to access console logs, network activity, take screenshots, and inspect elements to improve your development workflow.
+
+## Instructions
+- Use browser tools to debug UI issues and track frontend errors
+- Monitor network requests to identify API integration problems
+- Capture visual evidence of UI states with screenshots
+- Track console errors and correlate them with code patterns
+- Store browser logs and observations in the database for pattern recognition
+- Clear logs when starting new debugging sessions
+- Inspect DOM elements to understand frontend structure
+
+## Browser Tool Usage
+
+### Console Logging
+Use the console log tools to identify JavaScript errors and warnings:
+```
+mcp-browser getConsoleLogs
+mcp-browser getConsoleErrors
+```
+
+- Use for:
+  - Debugging JavaScript errors
+  - Tracking UI rendering issues
+  - Monitoring application state
+  - Identifying performance bottlenecks
+
+### Network Monitoring
+Use the network logging tools to track API and resource requests:
+```
+mcp-browser getNetworkErrorLogs
+mcp-browser getNetworkSuccessLogs
+```
+
+- Use for:
+  - Identifying failed API requests
+  - Monitoring HTTP status codes
+  - Tracking request/response patterns
+  - Debugging authentication issues
+
+### Visual Debugging
+Use screenshot and element selection tools for visual debugging:
+```
+mcp-browser takeScreenshot
+mcp-browser getSelectedElement
+```
+
+- Use for:
+  - Documenting UI states
+  - Capturing visual bugs
+  - Inspecting element properties
+  - Creating regression test references
+
+### Log Management
+Clear logs when starting new debugging sessions:
+```
+mcp-browser wipeLogs
+```
+
+## Integration with Database
+
+Store browser tool output in the database for pattern recognition:
+
+- Console errors:
+```
+python ./scripts/db_save.py "interaction_history" '{"action_type":"console_error","file_path":"frontend/components/user-profile.js","description":"TypeError: Cannot read property of undefined","context":"Console error in profile page","success":false}'
+```
+
+- Network issues:
+```
+python ./scripts/knowledge-store.py "frontend_patterns" "api_errors" '{"endpoint":"/api/users","error":"401 Unauthorized","frequency":3}'
+```
+
+- UI observations:
+```
+python ./scripts/db_save.py "project_metrics" '{"metric_name":"ui_error_screenshot","metric_value":1,"metric_unit":"image","context":"Login form validation error state"}'
+```
+
+## Best Practices
+- Combine browser tools with database tools to track recurring frontend issues
+- Take screenshots before and after UI changes to document visual differences
+- Correlate console errors with specific code patterns and store these relationships
+- Use network logs to identify API integration issues
+- Clear logs before starting new debugging sessions to avoid confusion
+- Store selected element properties for UI component analysis
+- Track error frequency to prioritize bug fixes

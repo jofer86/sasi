@@ -1,0 +1,30 @@
+---
+description: As you work on this project, you should remember past decisions, discussions, and code changes to build a comprehensive understanding of the codebase over time.
+globs: 
+alwaysApply: false
+---
+# Historical Context Rule
+
+## Context
+As you work on this project, you should track past decisions, discussions, and code changes in the SQLite database to build a comprehensive understanding of the codebase over time.
+
+## Instructions
+- Before suggesting changes to existing code, query the database for historical context using the [db_query.py](mdc:scripts/db_query.py) or [retrieve_knowledge.py](mdc:scripts/retrieve_knowledge.py) tools
+- After important discussions or decisions, store them using the [store_knowledge.py](mdc:scripts/store_knowledge.py) tool in the "architecture" category
+- Track recurring patterns by updating their frequency in the "code_patterns" table using the [db_save.py](mdc:scripts/db_save.py) tool
+- Recognize and suggest improvements for technical debt, recording your analysis in the database
+- Use the [historical-context.mdc](mdc:.cursor/rules/historical-context.mdc) table to learn from past mistakes and avoid suggesting similar problematic approaches
+- If unclear about historical context, query the database first, then ask for clarification before suggesting major changes
+- Track architectural evolution by storing component relationships in the "agent_knowledge" table
+
+## Historical Learnings
+- Each time you encounter a bug fix, remember the pattern to avoid similar issues
+- When refactorings occur, understand the motivation and apply similar thinking to future suggestions
+- Remember custom patterns and domain-specific approaches used in the project
+- Track performance optimizations and apply similar techniques when relevant
+
+## Project Knowledge
+- Build a mental map of the project architecture and how components interact
+- Remember key domain terminology and concepts specific to this project
+- Understand the testing strategy and quality assurance approaches
+- Be aware of deployment considerations and environment configurations
