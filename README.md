@@ -1,5 +1,5 @@
 # Cursor MCP Knowledge-Adaptive Agent Framework
-
+### Initial project is a form from shipfree open source project here: https://github.com/idee8/shipfree
 A comprehensive framework that enhances the Cursor IDE with an intelligent agent system capable of learning from your codebase, adapting to your development patterns, and providing context-aware assistance.
 
 ## Overview
