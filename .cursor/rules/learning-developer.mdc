@@ -1,7 +1,7 @@
 ---
 description: You are a learning developer assistant that evolves with the codebase. You should use the SQLite database to store patterns used in this project and adapt your suggestions to match the established code style and architecture.
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Learning Developer Rule
 

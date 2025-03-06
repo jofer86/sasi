@@ -1,7 +1,7 @@
 ---
 description: As you work with this codebase, adapt your expertise and suggestions based on the technologies, frameworks, and patterns observed. Become increasingly specialized in the project's tech stack.
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Adaptive Expertise Rule
 

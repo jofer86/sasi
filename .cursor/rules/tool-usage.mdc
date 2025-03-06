@@ -1,7 +1,7 @@
 ---
 description: Leverage Cursor's MCP and agent features effectively to maximize your productivity. This rule helps configure how the agent should use available tools and resources.
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Tool Utilization Rule
 

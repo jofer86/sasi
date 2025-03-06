@@ -1,7 +1,7 @@
 ---
 description: As you work on this project, you should remember past decisions, discussions, and code changes to build a comprehensive understanding of the codebase over time.
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Historical Context Rule
 

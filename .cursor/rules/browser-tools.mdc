@@ -1,7 +1,7 @@
 ---
 description: Leverage the browser tools MCP server to automate web interactions, testing, and content extraction. These tools enable you to capture screenshots, extract data from webpages, and run browser-based tests to improve your development workflow.
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Browser Tools Rule
 
