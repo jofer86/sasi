@@ -1,41 +1,126 @@
-# Project Workspace
+# Cursor MCP Knowledge-Adaptive Agent Framework
 
-This is a new project workspace where we'll be building according to your requirements.
+A comprehensive framework that enhances the Cursor IDE with an intelligent agent system capable of learning from your codebase, adapting to your development patterns, and providing context-aware assistance.
 
-## Project Structure
+## Overview
 
-As we develop this project, we'll maintain:
+This project implements an intelligent agent system that:
 
-- Clear organization of code
-- Consistent coding patterns
-- Documentation of key decisions
-- Technology choices that align with project goals
+1. **Learns from your codebase** - Stores patterns, conventions, and best practices observed in your code
+2. **Adapts to your development style** - Evolves its suggestions to match your established coding patterns
+3. **Provides browser-based debugging tools** - Captures console logs, network activity, and UI states
+4. **Maintains historical context** - Remembers past decisions and code changes
+5. **Offers a REST API** - Access stored knowledge and documentation programmatically
 
-## Getting Started
+## Key Features
 
-When you're ready to begin working on a specific feature or task, please provide details about:
+### Knowledge Storage and Retrieval
 
-1. The technology stack you prefer to use
-2. Specific features or functionality you want to implement
-3. Any existing code or frameworks we should integrate with
+- **Pattern Recognition**: Identifies and stores recurring code patterns
+- **Technology Adaptation**: Specializes in your project's tech stack
+- **Context Awareness**: Builds understanding of your project architecture
+- **Historical Memory**: Remembers past decisions and discussions
 
-## Development Notes
+### Browser Debugging Tools
 
-This section will track key decisions and progress as we build this project together.
+- **Console Monitoring**: Tracks JavaScript errors and warnings
+- **Network Inspection**: Monitors API requests and responses
+- **Visual Debugging**: Captures screenshots of UI states
+- **DOM Analysis**: Inspects HTML elements and properties
 
-## MCP Setup
+### SQLite Database
 
-The Model-Cursor Protocol (MCP) has been set up to enhance our collaborative development process. This system:
+Stores project knowledge in several tables:
 
-- Tracks code patterns and project-specific knowledge in an SQLite database
-- Adapts suggestions to match your established coding style
-- Maintains historical context of decisions and code changes
-- Enables more intelligent assistance as we continue to work together
+- `agent_knowledge`: General knowledge about the codebase
+- `code_patterns`: Recurring patterns found in the code
+- `documentation`: Project documentation entries
+- `interaction_history`: Record of agent-developer interactions
+- `project_metrics`: Metrics and statistics about the project
+- `project_status`: Status of various project components
 
-The MCP utilizes the following components:
-- Database initialization and management (`db_setup.py`, `db_save.py`, `db_query.py`)
-- Knowledge storage and retrieval (`store_knowledge.py`, `retrieve_knowledge.py`)
-- Main application interface (`app.py`)
+### REST API
 
-This setup allows for continuous learning and improvement throughout our development process. # sasi
-# sasi
+Access the stored knowledge through a Flask-based API:
+
+- `/api/db/query`: Execute custom database queries
+- `/api/db/status`: Get database information and schema
+- `/api/docs`: Retrieve project documentation
+
+## Setup and Usage
+
+### Initial Setup
+
+1. Clone this repository
+2. Run the MCP setup script:
+
+```bash
+python scripts/mcp_setup.py
+```
+
+This script will:
+- Verify all required components are in place
+- Set up the SQLite database with necessary tables
+- Test the knowledge storage and retrieval system
+
+### Using the Knowledge Storage
+
+Store new knowledge:
+
+```bash
+python scripts/store_knowledge.py "category" "key" "value"
+```
+
+Retrieve knowledge:
+
+```bash
+python scripts/retrieve_knowledge.py "category" "key"
+```
+
+### Starting the API Server
+
+Launch the REST API server:
+
+```bash
+python scripts/app.py
+```
+
+The API will be available at `http://localhost:5000`.
+
+### Browser Tools Usage
+
+The browser tools provide various debugging capabilities:
+
+- Console log monitoring
+- Network traffic inspection
+- Screenshot capture
+- DOM element selection
+
+## Scripts Reference
+
+- `db_setup.py`: Creates SQLite database and tables
+- `db_save.py`: Saves data to database tables
+- `db_query.py`: Executes queries against the database
+- `store_knowledge.py`: Stores knowledge in `agent_knowledge` table
+- `retrieve_knowledge.py`: Retrieves knowledge from `agent_knowledge` table
+- `app.py`: REST API server for accessing the database
+- `mcp_setup.py`: Verifies and initializes the MCP system
+- `delete_knowledgebase.py`: Deletes the database (use with caution)
+
+## System Requirements
+
+- Python 3.6+
+- Flask
+- SQLite3
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit pull requests.
+
+## License
+
+MIT License
+
+---
+
+*This README was generated by an AI agent using the Cursor MCP Knowledge-Adaptive Framework.*
